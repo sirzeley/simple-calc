@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <title> Calculadora Simples </title>
+    <style>
+        .calculadora { 
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(4, 1fr); 
+    gap: 10vw; 
+}
+
+.button {
+    
+    padding: 10vw; 
+    text-align: center; 
+    
+
+    
+            width: 100vw; 
+            margin: 100vw auto; 
+            padding: 20vw; 
+            border: 1vw solid #ccc; 
+            border-radius: 5vw; 
+            
+            
+        }
+        input, button { 
+            width: 100%; 
+            margin: 5vw 0; 
+            padding: 5vw; 
+        }
+        
+    </style>
+</head>
+<body>
+    <input type="text" id="display" disabled>
+    <div class="calculadora">
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('/')">/</button>
+        <button onclick="appendToDisplay('*')">x</button>
+        <button onclick="appendToDisplay('-')">-</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="appendToDisplay ('.')">.</button>
+        <button onclick="calculate()">=</button>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            var display = document.getElementById('display');
+            display.value = eval(display.value);
+        }
+    </script>
+</body>
+</html>
